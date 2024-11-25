@@ -1,30 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>music recommend</title>
-	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Music Recommendation System</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main-box {
+            background: #1e1e1e; /* Slightly lighter than background for contrast */
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+        .main-box h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #e0e0e0; /* Light gray for contrast */
+        }
+        .input-box {
+            margin-bottom: 30px;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 20px;
+            font-size: 22px;
+            border: 2px solid #333; /* Darker border for input boxes */
+            border-radius: 10px;
+            background: #1e1e1e; /* Match input background with box */
+            color: #ffffff; /* White text inside inputs */
+        }
+        .input-box input::placeholder {
+            color: #999; /* Placeholder text in lighter gray */
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            font-size: 24px;
+            background-color: #28a745; /* Green button */
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
 </head>
-<body style="background-color: #edffec;">
+<body>
 
-	<div class="title">
-		<h1 class="display-4">Select Language</h1>
-	</div>
-
-	<form action="{{url_for('choose_singer')}}" method="POST">
-		<label><input type="radio" name="language" value="punjabi" checked="true"><div class="box">punjabi</div></label>
-		<label><input type="radio" name="language" value="english"><div class="box">english</div></label>
-		<br>
-		<label><input type="radio" name="language" value="hindi"><div class="box">hindi</div></label>
-		<label><input type="radio" name="language" value="western"><div class="box">western</div></label>
-
-		<br>
-		<input type="submit" name="btn" value="next" class="btn btn-outline-success btn-lg">
-
-	</form>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <div class="main-box">
+        <h1>Music Recommendation System</h1>
+        <form action="{{url_for('capture_photo')}}" method="POST">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="language" placeholder="Enter your preferred language" required>
+            </div>
+            <input type="submit" value="Capture Image" class="submit-button">
+        </form>
+    </div>
 
 </body>
 </html>
